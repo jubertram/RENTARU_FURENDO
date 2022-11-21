@@ -1,0 +1,6 @@
+<h1>Index</h1>
+  <ul>
+    <% @partners.each do |partner| %>
+      <li><%= link_to partner.first_name, partner_path(partner) %></li>
+    <% end %>
+  </ul>
