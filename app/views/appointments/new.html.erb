@@ -1,5 +1,5 @@
-<%= simple_form_for [@partner, @user, @appointment] do |f|%>
+<%= simple_form_for [@partner, @appointment] do |f|%>
 <%= f.input :schedule_date %>
 <%= f.input :comment %>
-<%= f.commit %>
+<%= f.submit %>
 <% end %>

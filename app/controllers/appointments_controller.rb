@@ -1,5 +1,6 @@
 class AppointmentsController < ApplicationController
-  before_action :set_user, :set_partner
+  before_action :set_user
+  before_action :set_partner, only: %i[new create]
 
   def index
     @appointments = @user.appointments
@@ -11,6 +12,14 @@ class AppointmentsController < ApplicationController
 
   def create
     @appointment = Appointment.new(params_appointment)
+    @appointment.partner = @partner
+    @appointment.user = @user
+
+    if @appointment.save
+      redirect_to partner_path(@partner)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
@@ -24,6 +33,6 @@ class AppointmentsController < ApplicationController
   end
 
   def set_partner
-    @partner = Partner.find(params[partner_id])
+    @partner = Partner.find(params[:partner_id])
   end
 end
