@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>My Appointments</h1>
+
+  <ul>
+    <% @appointments.each do |appointment| %>
+      <li>I will spend good time with <%= appointment.partner.first_name %> <%= appointment.partner.last_name %> <br>
+      on <%= appointment.shedule_date %>!</li>
+  </ul>
+
+<%= link_to "go back to main page", root_path %>
+</div>
