@@ -10,9 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_21_133823) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_21_141416) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "appointments", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "partner_id", null: false
+    t.string "comment"
+    t.datetime "schedule_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["partner_id"], name: "index_appointments_on_partner_id"
+    t.index ["user_id"], name: "index_appointments_on_user_id"
+  end
+
+  create_table "partners", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "gender"
+    t.string "address"
+    t.string "temperament"
+    t.string "interest"
+    t.integer "age"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_partners_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,4 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_21_133823) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "appointments", "partners"
+  add_foreign_key "appointments", "users"
+  add_foreign_key "partners", "users"
 end
