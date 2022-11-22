@@ -44,6 +44,6 @@ class PartnersController < ApplicationController
   end
 
   def partner_params
-    params.require(:partner).permit(:first_name, :last_name, :gender, :address, :temperament, :interest, :age)
+    params.require(:partner).permit(:first_name, :last_name, :gender, :address, :temperament, :interest, :age, :photo_url)
   end
 end

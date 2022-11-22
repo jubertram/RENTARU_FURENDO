@@ -6,5 +6,6 @@
   <%= f.input :temperament, collection: Partner::TEMPERAMENT %>
   <%= f.input :interest, collection: Partner::INTEREST %>
   <%= f.input :age %>
+   <%= f.input :photo_url, as: :file %>
   <%= f.submit %>
 <% end %>

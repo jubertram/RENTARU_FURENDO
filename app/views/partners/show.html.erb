@@ -12,6 +12,11 @@
     <h2 class="card-trip-pricing">Dispo combien de tmp ?</h2>
   </div>
 </div>
+
+<% if @partner.photo_url.attached? %>
+<%= cl_image_tag @partner.photo_url.key, height: 300, width: 400, crop: :fill %>
+<% end %>
+
 <%= link_to '⬅', partners_path, class: "btn btn-ghost" %>
 <%= link_to "✍️", edit_partner_path(@partner), class: "btn btn-ghost" %>
 <%= link_to "🗑️",  partner_path(@partner), data: { turbo_method: 'delete', turbo_confirm: 'Are you sure?' }, class: "btn btn-ghost" %>
