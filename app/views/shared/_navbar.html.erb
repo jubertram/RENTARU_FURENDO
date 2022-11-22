@@ -20,7 +20,10 @@
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/axldarealest", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Partner Profile", partner_path(@partner), class: "dropdown-item" %>
+            <% mypartner = Partner.all.find{|partner| partner.user_id == current_user.id} %>
+            <% if mypartner %>
+              <%= link_to "Partner Profile", partner_path(mypartner), class: "dropdown-item" %>
+              <% end %>
               <%= link_to "Create Your Partner", new_partner_path, class: "dropdown-item" %>
               <%= link_to "See All Partners", partners_path, class: "dropdown-item" %>
               <%= link_to "My Appointments", appointments_path, class: "dropdown-item" %>
