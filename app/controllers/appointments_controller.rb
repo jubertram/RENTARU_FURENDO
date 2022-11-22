@@ -16,10 +16,17 @@ class AppointmentsController < ApplicationController
     @appointment.user = @user
 
     if @appointment.save
-      redirect_to partner_path(@partner)
+      redirect_to appointments_path
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @appointment = Appointment.find(params[:id])
+
+    @appointment.destroy
+    redirect_to appointments_path, status: :see_other
   end
 
   private
