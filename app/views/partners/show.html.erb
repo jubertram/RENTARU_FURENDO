@@ -17,3 +17,4 @@
 
 <%= link_to '⬅', partners_path, class: "btn btn-ghost" %>
 <%= link_to "✍️", edit_partner_path(@partner), class: "btn btn-ghost" %>
+<%= link_to "+ Rent #{@partner.first_name}", new_partner_appointment_path(@partner), class:"text-decoration-none text-dark" %>
