@@ -1,4 +1,7 @@
 <h1><%= @partner.first_name %></h1>
+<% if @partner.photo_url.attached? %>
+<%= cl_image_tag @partner.photo_url.key, height: 300, width: 400, crop: :fill %>
+<% end %>
 
 <%= link_to 'Create new furendo', new_partner_path %>
 <%= link_to 'back', partners_path %>
