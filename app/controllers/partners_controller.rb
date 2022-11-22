@@ -21,6 +21,17 @@ class PartnersController < ApplicationController
     end
   end
 
+  def edit
+    @partner = Partner.find(params[:id])
+  end
+
+  def update
+    @partner = Partner.find(params[:id])
+    @partner.update(partner_params)
+
+    redirect_to partners_path
+  end
+
   def destroy
     @partner.destroy
     redirect_to partner_path(@partner.list), status: :see_other
