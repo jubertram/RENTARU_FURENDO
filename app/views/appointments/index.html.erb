@@ -8,7 +8,7 @@
         <% end %>
           <div class="card-product-infos">
           <h2>On <%= appointment.schedule_date %></h2>
-          <p>I will spend good time with <strong><%= appointment.partner.last_name %></strong>!</p>
+          <p>I will spend good time with <strong><%= appointment.partner.first_name %></strong>!</p>
 
       </div>
       <%= link_to '<i class="fa-solid fa-trash text-dark"></i>'.html_safe, appointment_path(appointment), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"text-decoration-none"  %>
@@ -18,5 +18,5 @@
     <% end %>
   </ul>
 
-<%= link_to "go back to main page", partners_path %>
+<%= link_to "All Partners", partners_path %>
 </div>
