@@ -33,8 +33,9 @@ class PartnersController < ApplicationController
   end
 
   def destroy
+    @partner = Partner.find(params[:id])
     @partner.destroy
-    redirect_to partner_path(@partner.list), status: :see_other
+    redirect_to partners_path, status: :see_other
   end
 
   private
