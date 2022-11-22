@@ -15,16 +15,16 @@
             <%= link_to "Home", "#", class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
+            <% mypartner = Partner.all.find{|partner| partner.user_id == current_user.id} %>
+        <% if mypartner %>
+          <%= link_to "My Profile", partner_path(mypartner), class: "nav-link" %>
+            <% else %>
+          <%= link_to "See My Profile", partners_path, class: "nav-link" %>
+            <% end %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/axldarealest", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <% mypartner = Partner.all.find{|partner| partner.user_id == current_user.id} %>
-            <% if mypartner %>
-              <%= link_to "Partner Profile", partner_path(mypartner), class: "dropdown-item" %>
-              <% end %>
-              <%= link_to "Create Your Partner", new_partner_path, class: "dropdown-item" %>
               <% deletepartner = Partner.all.find{|partner| partner.user_id == current_user.id} %>
             <% if deletepartner %>
               <%= link_to "Delete Your Partner", partner_path(deletepartner), data: { turbo_method: 'delete', turbo_confirm: 'Are you sure?' }, class: "dropdown-item" %>
