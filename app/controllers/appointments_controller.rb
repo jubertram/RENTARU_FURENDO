@@ -1,9 +1,9 @@
 class AppointmentsController < ApplicationController
-  before_action :set_user
+  before_action :set_user, only: %i[new create]
   before_action :set_partner, only: %i[new create]
 
   def index
-    @appointments = @user.appointments
+    @appointments = Appointment.all
   end
 
   def new

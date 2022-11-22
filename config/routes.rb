@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :partners do
     resources :appointments, only: [:new, :create]
   end
-  resources :appointments, only: [:index]
+  resources :appointments, only: [:index, :destroy]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
