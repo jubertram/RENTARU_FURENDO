@@ -1,17 +1,18 @@
 <div class="container">
-  <h1>My Appointments</h1>
-
+  <h1 class="my-3">My Appointments</h1>
   <ul class="list-unstyled">
     <% @appointments.each do |appointment| %>
-      <li><div class="card-product">
+      <li class="mb-2"><div class="card-product">
         <% if appointment.partner.photo_url.attached? %>
           <%= cl_image_tag appointment.partner.photo_url.key, height: 120, width: 120, crop: :fill %>
         <% end %>
           <div class="card-product-infos">
           <h2>On <%= appointment.schedule_date %></h2>
           <p>I will spend good time with <strong><%= appointment.partner.last_name %></strong>!</p>
-          <%= link_to '<i class="fa-solid fa-trash"></i>'.html_safe, appointment_path(appointment), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"text-decoration-none"  %>
-      </div></div>
+
+      </div>
+      <%= link_to '<i class="fa-solid fa-trash text-dark"></i>'.html_safe, appointment_path(appointment), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"text-decoration-none"  %>
+      </div>
 
       </li>
     <% end %>
