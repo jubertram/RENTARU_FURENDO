@@ -1,7 +1,22 @@
-<h1><%= @partner.first_name %></h1>
+<div class="card-trip">
+  <img src="https://thumbs.dreamstime.com/b/visage-humain-d-art-de-pixel-d-illustration-59166653.jpg" />
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= @partner.first_name %> <%= @partner.last_name %></h2>
+      <p>Gender: <%= @partner.gender %></p>
+      <p>Address: <%= @partner.address %></p>
+      <p>Temperament: <%= @partner.temperament %></p>
+      <p>Interest: <%= @partner.interest %></p>
+      <p>Age: <%= @partner.age %></p>
+    </div>
+    <h2 class="card-trip-pricing">Dispo combien de tmp ?</h2>
+  </div>
+</div>
+
 <% if @partner.photo_url.attached? %>
 <%= cl_image_tag @partner.photo_url.key, height: 300, width: 400, crop: :fill %>
 <% end %>
 
-<%= link_to 'Create new furendo', new_partner_path %>
-<%= link_to 'back', partners_path %>
+<%= link_to '⬅', partners_path, class: "btn btn-ghost" %>
+<%= link_to "✍️", edit_partner_path(@partner), class: "btn btn-ghost" %>
+<%= link_to "🗑️",  partner_path(@partner), data: { turbo_method: 'delete', turbo_confirm: 'Are you sure?' }, class: "btn btn-ghost" %>
