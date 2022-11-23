@@ -1,3 +1,4 @@
+<div class="container">
 <div class="card-trip">
 <% if @partner.photo_url.attached? %>
 <%= cl_image_tag @partner.photo_url.key, height: 300, width: 400, crop: :fill %>
@@ -18,3 +19,4 @@
 <%= link_to '⬅', partners_path, class: "btn btn-ghost" %>
 <%= link_to "✍️", edit_partner_path(@partner), class: "btn btn-ghost" %>
 <%= link_to "+ Rent #{@partner.first_name}", new_partner_appointment_path(@partner), class:"text-decoration-none text-dark" %>
+</div>
