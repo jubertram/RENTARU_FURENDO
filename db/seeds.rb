@@ -16,6 +16,10 @@ user_2 = User.create!(first_name: "Monkey", last_name: "D. Luffy", email: "monke
 user_3 = User.create!(first_name: "Gojo", last_name: "Satoru", email: "gojo.satoru@gmail.com", password: "********")
 user_4 = User.create!(first_name: "Ransie", last_name: "Lupescu", email: "r.lupescu@gmail.com", password: "***********")
 user_5 = User.create!(first_name: "Suiren", last_name: "Shibazeki", email: "suiren.s@gmail.com", password: "*****************")
+user_6 = User.create!(first_name: "Julien", last_name: "Bertram", email: "lewagon@test.com", password: "password")
+user_7 = User.create!(first_name: "Axel", last_name: "Logan", email: "axel@logan.com", password: "coucou")
+user_8 = User.create!(first_name: "Martina", last_name: "Trotta", email: "martina@gmail.com", password: "******")
+user_9 = User.create!(first_name: "Gabriel", last_name: "Sanchez", email: "cannes@gmail.com", password: "password")
 
 file1 = URI.open("https://res.cloudinary.com/ddz8gswxn/image/upload/v1669117785/Partners/image_2_gpmxpo.jpg")
 partner = Partner.new(first_name: "Historia", last_name: "Reiss", gender: "Female", address: "Wall Sina", temperament: "Shy", interest: "Sport", age: 20, user_id: user_1.id)
@@ -41,3 +45,8 @@ file5 = URI.open("https://res.cloudinary.com/ddz8gswxn/image/upload/v1669117779/
 partner4 = Partner.new(first_name: "Suiren", last_name: "Shibazeki", gender: "Female", address: "Shuusei High School", temperament: "Shy", interest: "Reading", age: 19, user_id: user_5.id)
 partner4.photo_url.attach(io: file5, filename: "photo1.png", content_type: "image/png")
 partner4.save
+
+file6 = URI.open("https://res.cloudinary.com/ddz8gswxn/image/upload/v1669201877/Partners/julien_fxmmq3.jpg")
+partner5 = Partner.new(first_name: "Julien", last_name: "Bertram", gender: "Male", address: "21 Avenue Thiers, Nice", temperament: "Neutral", interest: "Reading", age: 30, user_id: user_6.id)
+partner5.photo_url.attach(io: file6, filename: "photo1.png", content_type: "image/png")
+partner5.save
