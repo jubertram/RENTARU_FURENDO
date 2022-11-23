@@ -1,8 +1,17 @@
-<div class="container">
-<h1 class="my-5  mx-auto">Index</h1>
-  <ul>
-    <% @partners.each do |partner| %>
-      <li><%= link_to partner.first_name, partner_path(partner) %></li>
-    <% end %>
-  </ul>
+<h1 style="color: #344F73; text-align: center;">Furendos</h1>
+<div class="flex-index">
+  <% @partners.each do |partner| %>
+    <div class="card-product-index">
+      <div class="avatar-index">
+      <% if partner.photo_url.attached? %>
+      <%= cl_image_tag partner.photo_url.key, height: 300, width: 300, crop: :fill %>
+      <% end %>
+      </div>
+      <div class="card-product-infos-index">
+        <h2><%= link_to partner.first_name, partner_path(partner) %></h2>
+        <p>Meet <%= partner.first_name %>!</p>
+      </div>
+    </div>
+  <% end %>
 </div>
+<div style = "height:400px;"></div>
