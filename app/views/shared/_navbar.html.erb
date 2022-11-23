@@ -18,9 +18,9 @@
             <% mypartner = Partner.all.find{|partner| partner.user_id == current_user.id} %>
         <% if mypartner %>
           <%= link_to "My Profile", partner_path(mypartner), class: "nav-link" %>
-            <% else %>
-          <%= link_to "Create My Furendo Profile", new_partner_path, class: "nav-link" %>
-            <% end %>
+            <% elsif %>
+            <%= link_to "Create My Furendo Profile", new_partner_path, class: "nav-link" %>
+              <% end %>
           </li>
           <li class="nav-item dropdown">
 
@@ -34,6 +34,7 @@
             <% if deletepartner %>
               <%= link_to "Delete My Profile", partner_path(deletepartner), data: { turbo_method: 'delete', turbo_confirm: 'Are you sure?' }, class: "dropdown-item" %>
               <% end %>
+              <%= link_to "Edit My Profile", edit_partner_path, class: "dropdown-item" %>
               <%= link_to "See All Furendos", partners_path, class: "dropdown-item" %>
               <%= link_to "My Appointments", appointments_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
