@@ -1,8 +1,11 @@
-<div class="container">
+<% price = (1..50).to_a.sample %>
+
+<div class="container mt-5">
+
 <div class="card-trip">
-<% if @partner.photo_url.attached? %>
-<%= cl_image_tag @partner.photo_url.key, height: 300, width: 400, crop: :fill %>
-<% end %>
+  <% if @partner.photo_url.attached? %>
+    <%= cl_image_tag @partner.photo_url.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
   <div class="card-trip-infos">
     <div>
       <h2><%= @partner.first_name %> <%= @partner.last_name %></h2>
@@ -12,11 +15,14 @@
       <p>Interest: <%= @partner.interest %></p>
       <p>Age: <%= @partner.age %></p>
     </div>
-    <h2 class="card-trip-pricing">Dispo combien de tmp ?</h2>
+    <h2 class="card-trip-pricing"><%= price %>€ /h </h2>
   </div>
 </div>
 
 <%= link_to '⬅', partners_path, class: "btn btn-ghost" %>
-<%= link_to "✍️", edit_partner_path(@partner), class: "btn btn-ghost" %>
-<%= link_to "+ Rent #{@partner.first_name}", new_partner_appointment_path(@partner), class:"text-decoration-none text-dark" %>
+
+<%= link_to "+ Rent #{@partner.first_name}", new_partner_appointment_path(@partner), class:"text-decoration-none text-dark card-trip-user" %>
+
 </div>
+
+<div style = "height:100px;"></div>

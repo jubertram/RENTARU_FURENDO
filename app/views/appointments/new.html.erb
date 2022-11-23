@@ -1,4 +1,5 @@
-<h1>Rent a furendo</h1>
+<div class="container">
+<h1 class="my-5  mx-auto">Rent a furendo</h1>
 
 <%= simple_form_for [@partner, @appointment] do |f|%>
 <%= f.input :schedule_date %>
@@ -7,3 +8,5 @@
 <% end %>
 
 <%= link_to "back to main", partners_path %>
+</div>
+<div style = "height:100px;"></div>
