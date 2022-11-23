@@ -34,7 +34,9 @@
             <% if deletepartner %>
               <%= link_to "Delete My Profile", partner_path(deletepartner), data: { turbo_method: 'delete', turbo_confirm: 'Are you sure?' }, class: "dropdown-item" %>
               <% end %>
+              <% if mypartner %>
               <%= link_to "Edit My Profile", edit_partner_path(mypartner), class: "dropdown-item" %>
+              <% end %>
               <%= link_to "See All Furendos", partners_path, class: "dropdown-item" %>
               <%= link_to "My Appointments", appointments_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
