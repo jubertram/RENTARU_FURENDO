@@ -1,0 +1,23 @@
+.button {
+  font-family: 'Roboto Slab', serif;
+  font-size: 20x;
+  color: black;
+}
+
+a {
+  color: black;
+
+  &:hover {
+    color: #EFF6FF;
+  }
+}
+
+.container {
+background-color: #EFF6FF;
+}
+
+.submit-button {
+  font-family: 'Roboto Slab', serif;
+  font-size: 30x;
+  color: black;
+}
