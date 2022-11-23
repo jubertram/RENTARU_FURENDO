@@ -1,10 +1,10 @@
 class PartnersController < ApplicationController
+  before_action :set_partner, only: [:show, :edit, :update, :destroy]
   def index
     @partners = Partner.all
   end
 
   def show
-    @partner = Partner.find(params[:id])
   end
 
   def new
@@ -22,18 +22,17 @@ class PartnersController < ApplicationController
   end
 
   def edit
-    @partner = Partner.find(params[:id])
   end
 
   def update
-    @partner = Partner.find(params[:id])
-    @partner.update(partner_params)
-
-    redirect_to partners_path
+    if @partner.update(partner_params)
+      redirect_to @partner, notice: 'Your Profile Was Successfully Updated!'
+    else
+      render :edit
+    end
   end
 
   def destroy
-    @partner = Partner.find(params[:id])
     @partner.destroy
     redirect_to partners_path, status: :see_other
   end
