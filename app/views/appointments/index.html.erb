@@ -1,5 +1,5 @@
 <div class="container" >
-  <h1 class="my-5  mx-auto" style="width: 400px;">My Appointments</h1>
+  <h1 class="my-5  mx-auto" style="width: 400px; color: #344F73">My Appointments</h1>
   <ul class="list-unstyled">
     <% @appointments.each do |appointment| %>
       <li class="mb-2"><div class="card-product">
@@ -11,7 +11,7 @@
         <p>I will spend good time with <strong><%= appointment.partner.first_name %></strong>!</p>
 
         </div>
-          <%= link_to '<i class="fa-solid fa-trash text-dark"></i>'.html_safe, appointment_path(appointment), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"text-decoration-none"  %>
+          <%= link_to '<i class="fa-solid fa-trash" style="color: #344F73"></i>'.html_safe, appointment_path(appointment), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"text-decoration-none"  %>
         </div>
       </li>
     <% end %>
@@ -21,4 +21,4 @@
 
 
 
-<div style = "height:100px;"></div>
+<div style = "height:400px;"></div>
