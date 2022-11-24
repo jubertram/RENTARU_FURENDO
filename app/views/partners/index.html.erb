@@ -1,4 +1,4 @@
-<h1 style="color: #344F73; text-align: center;">Furendos</h1>
+<h1 style="color: #344F73; text-align: center; padding-bottom: 1%;">Furendos</h1>
 
 <%= form_tag partners_path, method: :get, class: "d-flex" do %>
   <%= select_tag :interest,
@@ -33,4 +33,5 @@
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" >
   </div>
-</div>
+</div><br>
+<%= render 'shared/footer_home'%>

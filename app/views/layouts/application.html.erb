@@ -18,10 +18,6 @@
       <%= yield %>
         <p class="notice"><%= notice %></p>
           <p class="alert"><%= alert %></p>
-            <% if controller.controller_name != "pages" %>
-              <%= render 'shared/footer'%>
-            <% elsif controller.controller_name == "pages" %>
-              <%= render 'shared/footer_home'%>
-            <% end %>
+
   </body>
 </html>
