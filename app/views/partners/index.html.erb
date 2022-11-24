@@ -2,12 +2,13 @@
 
 <%= form_tag partners_path, method: :get, class: "d-flex" do %>
   <%= select_tag :interest,
-   options_for_select(Partner::INTEREST)
+   options_for_select(Partner::INTEREST), prompt: "Interest"
   %>
     <%= select_tag :temperament,
-  options_for_select(Partner::TEMPERAMENT)
+  options_for_select(Partner::TEMPERAMENT), prompt: "Temperament"
   %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
+  <%= link_to "See All Furendos", partners_path, class: "btn btn-success left-margin" %>
 <% end %>
 
 <div class="flex-index">
