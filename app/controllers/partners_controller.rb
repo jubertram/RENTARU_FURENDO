@@ -2,6 +2,12 @@ class PartnersController < ApplicationController
   before_action :set_partner, only: [:show, :edit, :update, :destroy]
   def index
     @partners = Partner.all
+    if params[:interest].present?
+      @partners = Partner.where(interest: params[:interest])
+    end
+    if params[:temperament].present?
+      @partners = Partner.where(temperament: params[:temperament])
+    end
   end
 
   def show
