@@ -7,7 +7,7 @@
           <%= cl_image_tag appointment.partner.photo_url.key, height: 120, width: 120, crop: :fill %>
         <% end %>
         <div class="card-product-infos">
-        <h2>On <%= appointment.schedule_date %></h2>
+        <h2>From <%= appointment.start_time.strftime("%b %d, %Y")  %> to <%= appointment.end_time.strftime("%b %d, %Y") %> </h2>
         <p>I will spend good time with <strong><%= appointment.partner.first_name %></strong>!</p>
 
         </div>

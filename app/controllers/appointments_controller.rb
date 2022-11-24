@@ -32,7 +32,7 @@ class AppointmentsController < ApplicationController
   private
 
   def params_appointment
-    params.require(:appointment).permit(:schedule_date, :comment, :user_id, :partner_id)
+    params.require(:appointment).permit(:start_time, :end_time, :user_id, :partner_id)
   end
 
   def set_user

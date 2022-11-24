@@ -1,9 +1,9 @@
 <div class="container">
 <h1 class="my-5 text-center">Rent a furendo</h1>
 
-<%= simple_form_for [@partner, @appointment] do |f|%>
-<%= f.input :schedule_date %>
-<%= f.input :comment %>
+<%= simple_form_for [@partner, @appointment], data: { controller: 'flatpickr' } do |f|%>
+<%= f.input :start_time, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
+<%= f.input :end_time, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
 <%= f.submit "Rent #{@partner.first_name}!" %>
 <% end %>
 <%= link_to "back to main", partners_path%>
