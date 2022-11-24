@@ -1,4 +1,15 @@
 <h1 style="color: #344F73; text-align: center;">Furendos</h1>
+
+<%= form_tag partners_path, method: :get, class: "d-flex" do %>
+  <%= select_tag :interest,
+   options_for_select(Partner::INTEREST)
+  %>
+    <%= select_tag :temperament,
+  options_for_select(Partner::TEMPERAMENT)
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
 <div class="flex-index">
   <div class="flex-card">
     <% @partners.each do |partner| %>

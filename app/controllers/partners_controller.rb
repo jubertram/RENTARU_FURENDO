@@ -10,6 +10,13 @@ class PartnersController < ApplicationController
         lng: flat.longitude
       }
     end
+
+    if params[:interest].present?
+      @partners = Partner.where(interest: params[:interest])
+    end
+    if params[:temperament].present?
+      @partners = Partner.where(temperament: params[:temperament])
+    end
   end
 
   def show
