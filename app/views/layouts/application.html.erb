@@ -11,11 +11,15 @@
   </head>
 
   <body>
-  <%= render "shared/navbar" %>
-  <%= render "shared/flashes" %>
-    <%= yield %>
-    <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-        <%= render "shared/footer" %>
+    <%= render "shared/navbar" %>
+    <%= render "shared/flashes" %>
+      <%= yield %>
+        <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+            <% if controller.controller_name != "pages" %>
+              <%= render 'shared/footer'%>
+            <% elsif controller.controller_name == "pages" %>
+              <%= render 'shared/footer_home'%>
+            <% end %>
   </body>
 </html>
