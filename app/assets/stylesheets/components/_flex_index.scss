@@ -1,7 +1,6 @@
 .flex-index {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-evenly;
-  padding: 84px 0;
+  flex-wrap: wrap;
+  width: 100%;
 }
