@@ -2,12 +2,11 @@ class PartnersController < ApplicationController
   before_action :set_partner, only: [:show, :edit, :update, :destroy]
   def index
     @partners = Partner.all
-
-    # The `geocoded` scope filters only flats with coordinates
-    @markers = @flats.geocoded.map do |flat|
+    # The `geocoded` scope filters only partners with coordinates
+    @markers = @partners.geocoded.map do |partner|
       {
-        lat: flat.latitude,
-        lng: flat.longitude
+        lat: partner.latitude,
+        lng: partner.longitude
       }
     end
 
