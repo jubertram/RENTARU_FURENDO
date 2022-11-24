@@ -2,9 +2,11 @@
 <div class="flex-index">
   <% @partners.each do |partner| %>
     <div class="card-product-index">
-      <div class="avatar-index">
-      <% if partner.photo_url.attached? %>
-      <%= cl_image_tag partner.photo_url.key, height: 300, width: 300, crop: :fill %>
+      <%= link_to partner_path(partner) do %>
+        <div class="avatar-index">
+          <% if partner.photo_url.attached? %>
+            <%= cl_image_tag partner.photo_url.key, height: 300, width: 300, crop: :fill %>
+          <% end %>
       <% end %>
       </div>
       <div class="card-product-infos-index">
