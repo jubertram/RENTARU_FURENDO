@@ -1,4 +1,8 @@
 .card-trip {
+  width: 60%;
+  margin: auto;
+  display: block;
+  justify-content: space-between;
   overflow: hidden;
   background: #C3AE86;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -7,7 +11,7 @@
 }
 
 .card-trip > img {
-  height: 500px;
+  height: 580px;
   width: 100%;
   object-fit: cover;
 }
@@ -26,7 +30,7 @@
 
 
 .card-trip .card-trip-infos {
-  padding: 16px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
