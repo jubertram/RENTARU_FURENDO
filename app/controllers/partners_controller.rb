@@ -6,7 +6,8 @@ class PartnersController < ApplicationController
     @markers = @partners.geocoded.map do |partner|
       {
         lat: partner.latitude,
-        lng: partner.longitude
+        lng: partner.longitude,
+        image_url: helpers.cloudinary_url(partner.photo_url.key)
       }
     end
 
