@@ -14,9 +14,9 @@
           <li class="nav-item">
             <% mypartner = Partner.all.find{|partner| partner.user_id == current_user.id} %>
         <% if mypartner %>
-          <%= link_to "My Profile", partner_path(mypartner), class: "nav-link" %>
+          <h3 style="padding: 25px 40px 0 0;"><%= link_to "My Profile", partner_path(mypartner) %></h3>
             <% elsif %>
-            <%= link_to "Create My Furendo Profile", new_partner_path, class: "nav-link" %>
+            <h3 style="padding: 25px 40px 0 0;"><%= link_to "I wanna be a Furendo too 🥺", new_partner_path %></h3>
               <% end %>
           </li>
           <li class="nav-item dropdown">
@@ -41,7 +41,7 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            <h3 style="padding: 25px 40px 0 0;"><%= link_to "Login", new_user_session_path %></h3>
           </li>
         <% end %>
       </ul>
