@@ -1,17 +1,16 @@
-<div class="container" >
-  <h1 style="color: #344F73; text-align: center;">My Appointments</h1>
-
+<div id="cardix-app" >
+  <h1>My Appointments</h1>
   <% if  @appointments.all == []  %>
-    <h3 style="color: #6E867A; text-align: center;">You don't have appointment yet !</h3>
+    <h3>You don't have appointments yet !</h3>
   <% else %>
     <ul class="list-unstyled">
       <% @appointments.each do |appointment| %>
           <li class="mb-2">
           <div class="card-product">
             <%= link_to partner_path(appointment.partner) do %>
-            <% if appointment.partner.photo_url.attached? %>
-              <%= cl_image_tag appointment.partner.photo_url.key, height: 120, width: 120, crop: :fill %>
-            <% end %>
+              <% if appointment.partner.photo_url.attached? %>
+                <%= cl_image_tag appointment.partner.photo_url.key, height: 120, width: 120, crop: :fill %>
+              <% end %>
             <% end %>
             <div class="card-product-infos">
               <%= link_to partner_path(appointment.partner) do %>
@@ -19,13 +18,18 @@
               <p>I will spend good time with <strong><%= appointment.partner.first_name %></strong>!</p>
               <% end %>
             </div>
-              <%= link_to '<i class="fa-solid fa-trash" style="color: #344F73"></i>'.html_safe, appointment_path(appointment), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"text-decoration-none"  %>
+              <%= link_to '<i class="fa-solid fa-trash" style="margin-left: 604px; font-size: x-large;""></i>'.html_safe, appointment_path(appointment), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"text-decoration-none"  %>
             </div>
           </li>
       <% end %>
     </ul>
   <% end %>
-    <%= link_to "All Partners", partners_path, class:"mt-5"%>
+
+      <div id="button-app">
+      <%= link_to partners_path do %>
+        <button id="msg-app">Map</button>
+      <% end %>
+    </div>
 </div>
 
 
