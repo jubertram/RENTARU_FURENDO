@@ -2,19 +2,21 @@ class PartnersController < ApplicationController
   before_action :set_partner, only: [:show, :edit, :update, :destroy]
   def index
     @partners = Partner.all
-    # The `geocoded` scope filters only partners with coordinates
-    @markers = @partners.geocoded.map do |partner|
-      {
-        lat: partner.latitude,
-        lng: partner.longitude
-      }
-    end
 
     if params[:interest].present?
       @partners = Partner.where(interest: params[:interest])
     end
     if params[:temperament].present?
       @partners = Partner.where(temperament: params[:temperament])
+    end
+
+    # The `geocoded` scope filters only partners with coordinates
+    @markers = @partners.geocoded.map do |partner|
+      {
+        lat: partner.latitude,
+        lng: partner.longitude,
+        image_url: helpers.cloudinary_url(partner.photo_url.key)
+      }
     end
   end
 
