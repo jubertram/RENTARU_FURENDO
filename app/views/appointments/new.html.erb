@@ -1,12 +1,15 @@
 <div class="container">
-<h1 class="my-5 text-center">Rent a furendo</h1>
+<h1 class="my-5 text-center" style="color: #344F73;">Rent a furendo</h1>
 
+<div style="color: #344F73;">
 <%= simple_form_for [@partner, @appointment], data: { controller: 'flatpickr' } do |f|%>
 <%= f.input :start_time, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
 <%= f.input :end_time, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
-<%= f.submit "Rent #{@partner.first_name}!" %>
+<%= f.submit "Rent #{@partner.first_name}!", class:'create-partner-button btn-rent link-index-button btn-appointment' %>
 <% end %>
-<%= link_to "back to main", partners_path%>
 </div>
-<div style = "height:450px;"></div>
+
+<%= link_to "Back to main", partners_path, class:'link-index-button btn-back btn-appointment' %>
+</div>
+
 <%= render 'shared/footer'%>
