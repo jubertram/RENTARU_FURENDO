@@ -1,29 +1,39 @@
-<% price = (1..50).to_a.sample %>
+<% price = (20..999).to_a.sample %>
+<%= @partner.address %>
 
-<div class="container mt-5">
 
-<div class="card-trip">
-  <% if @partner.photo_url.attached? %>
-    <%= cl_image_tag @partner.photo_url.key, height: 300, width: 400, crop: :fill %>
+<div id="cardix">
+	<h1><%= @partner.first_name %> <%= @partner.last_name %></h1>
+	<div class="image-crop">
+		<% if @partner.photo_url.attached? %>
+      <%= cl_image_tag @partner.photo_url.key, height: 150, width: 150, crop: :fill %>
+    <% end %>
+	</div>
+	<div id="bio">
+		<p>Hello, my name is <%= @partner.first_name %>! My temperament is <%= @partner.temperament.downcase %> hope you'll get it, also i'm interested in <%= @partner.interest.downcase %>. In case you didnt notice my gender is <%= @partner.gender.downcase %></p>
+	</div>
+	<div id="stats">
+		<div class="col" id="l">
+			<p class="stat">$<%= price %>/day </p>
+			<p class="label">Price</p>
+		</div>
+				<div class="col">
+			<p class="stat"><%= @partner.temperament %></p>
+			<p class="label">Temperament</p>
+		</div>
+				<div class="col" id="r">
+			<p class="stat"><%= @partner.age %> y/o</p>
+			<p class="label">Age</p>
+		</div>
+	</div>
+    <div id="buttons">
+  <%= link_to new_partner_appointment_path(@partner) do %>
+      <button>Rent me!</button>
   <% end %>
-  <div class="card-trip-infos">
-    <div>
-      <h2><%= @partner.first_name %> <%= @partner.last_name %></h2>
-      <p>Gender: <%= @partner.gender %></p>
-      <p>Address: <%= @partner.address %></p>
-      <p>Temperament: <%= @partner.temperament %></p>
-      <p>Interest: <%= @partner.interest %></p>
-      <p>Age: <%= @partner.age %></p>
+  <%= link_to partners_path do %>
+      <button id="msg">Back</button>
+  <% end %>
     </div>
-    <h2 class="card-trip-pricing"><%= price %>€ /day </h2>
-  </div>
 </div>
 
-<%= link_to '⬅', partners_path, class: "btn btn-ghost" %>
-
-<%= link_to "+ Rent #{@partner.first_name}", new_partner_appointment_path(@partner), class:"text-decoration-none text-dark card-trip-user" %>
-
-</div>
-
-<div style = "height:80px;"></div>
 <%= render 'shared/footer'%>
