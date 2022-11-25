@@ -1,0 +1,125 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+#cardix-app html,body {
+	// background-color: #6E7889;
+	font-family: tahoma, sans-serif;
+	color: #E6EBEE;
+}
+
+#cardix-app {
+	background-color: #393B45;
+  height: auto;
+	width: 70%;
+  min-width: 350px;
+	margin: 10vh auto;
+	border-radius: 25px;
+	padding-bottom: 1px;
+	box-shadow: 2px 2px 5px #344F73;
+}
+
+#cardix-app h1 {
+	color: white;
+	text-align: center;
+	width: 100%;
+	background-color: #E6EBEE;
+	border-radius: 25px 25px 0 0;
+	color: #393B45;
+	padding: 30px 0;
+	font-weight: 800;
+	margin: 0;
+  // #4069E2
+}
+
+#cardix-app h3 {
+  color: white;
+	text-align: center;
+	width: 100%;
+	font-weight: 800;
+  margin-top: 60px;
+}
+
+#button-app {
+	display: flex;
+	margin: 0 auto;
+	justify-content: space-between;
+  width: 93%;
+  min-width: 280px;
+}
+
+#msg-app{
+	background-color: #E6EBEE;
+	color: #393B45;
+  margin-left: 35px;
+}
+
+button:focus {
+	display: none;
+}
+
+button:hover {
+	transform: scale(1.03);
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+
+
+.card-product {
+  overflow: hidden;
+  height: 120px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin: 60px 80px 0px 80px;
+
+  background-color: #E6EBEE;
+  border-radius: 61px;
+
+}
+
+.card-product img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+  border-radius: 59px;
+}
+
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  font-size: larger;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .9;
+  margin-bottom: 0;
+  margin-top: 8px;
+  font-size: large;
+  font-family: tahoma, sans-serif;
+  color: #344f73;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+}
+
+.card-product a{
+	color: #344f73;;
+  font-family: tahoma, sans-serif;
+}
+
+.card-product a:hover {
+	transform: scale(1.03);
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+	color: #344f73;;
+}
+
+.card-product a:focus {
+	display: none;
+}
