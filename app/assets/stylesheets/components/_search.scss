@@ -1,0 +1,39 @@
+// legend ~ div.form-check:first-of-type {
+//   clear: both;
+// }
+
+// #button-furendos {
+// 	margin: 0 auto;
+// 	justify-content: space-between;
+// 	width: 80%;
+//   min-width: 280px;
+// }
+
+#button-search {
+  min-width: 280px;
+}
+
+#msg{
+	background-color: #E6EBEE;
+	color: #393B45;
+}
+
+.flex-container-search {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0 30%;
+
+}
+
+.interest {
+padding: 12px 30px;
+margin: 30px 0;
+border-radius: 25px;
+border: none;
+font-size: 20px;
+letter-spacing: 0.2px;
+font-weight: 500;
+background-color: #E6EBEE;;
+color: #393B45;
+}

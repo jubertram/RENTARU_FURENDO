@@ -1,38 +1,20 @@
-<h1 style="color: #344F73; text-align: center; padding-bottom: 1%;">Furendos</h1>
 
-<%= form_tag partners_path, method: :get, class: "d-flex" do %>
-  <%= select_tag :interest,
-   options_for_select(Partner::INTEREST), prompt: "Interest"
-  %>
-    <%= select_tag :temperament,
-  options_for_select(Partner::TEMPERAMENT), prompt: "Temperament"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-  <%= link_to "See All Furendos", partners_path, class: "btn btn-success left-margin" %>
+<%= form_tag partners_path, method: :get, class:"flex-container-search" do %>
+  <%= select_tag :interest, options_for_select(Partner::INTEREST), prompt: "Interest", class: "interest" %>
+  <%= select_tag :temperament, options_for_select(Partner::TEMPERAMENT), prompt: "Temperament", class: "interest" %>
+  <button  style="background-color: #344F73;" >Search</button>
+  <%= link_to partners_path do %>
+    <button id="msg">Clear</button>
+  <% end %>
 <% end %>
 
-<div class="flex-index">
-  <div class="flex-card">
-    <% @partners.each do |partner| %>
-      <div class="card-product-index">
-        <%= link_to partner_path(partner) do %>
-          <div class="avatar-index">
-            <% if partner.photo_url.attached? %>
-              <%= cl_image_tag partner.photo_url.key, height: 300, width: 300, crop: :fill %>
-            <% end %>
-          </div>
-        <% end %>
-        <div class="card-product-infos-index">
-          <h2><%= link_to partner.first_name, partner_path(partner) %></h2>
-          <p>Meet <%= partner.first_name %>!</p>
-        </div>
-      </div>
-    <% end %>
-  </div>
-  <div class="map" style="height: calc(100vh - 229px);"
+
+
+<div class="flex-index" style="height: calc(100vh - 229px);"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" >
-  </div>
-</div><br>
+</div>
+
+<br>
 <%= render 'shared/footer_home'%>

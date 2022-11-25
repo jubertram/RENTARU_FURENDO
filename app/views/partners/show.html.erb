@@ -1,38 +1,37 @@
 <% price = (20..999).to_a.sample %>
-<%= @partner.address %>
 
 
 <div id="cardix">
 	<h1><%= @partner.first_name %> <%= @partner.last_name %></h1>
-	<div class="image-crop">
-		<% if @partner.photo_url.attached? %>
-      <%= cl_image_tag @partner.photo_url.key, height: 150, width: 150, crop: :fill %>
-    <% end %>
-	</div>
-	<div id="bio">
-		<p>Hello, my name is <%= @partner.first_name %>! My temperament is <%= @partner.temperament.downcase %> hope you'll get it, also i'm interested in <%= @partner.interest.downcase %>. In case you didnt notice my gender is <%= @partner.gender.downcase %></p>
-	</div>
-	<div id="stats">
-		<div class="col" id="l">
-			<p class="stat">$<%= price %>/day </p>
-			<p class="label">Price</p>
-		</div>
-				<div class="col">
-			<p class="stat"><%= @partner.temperament %></p>
-			<p class="label">Temperament</p>
-		</div>
-				<div class="col" id="r">
-			<p class="stat"><%= @partner.age %> y/o</p>
-			<p class="label">Age</p>
-		</div>
-	</div>
+    <div class="image-crop">
+      <% if @partner.photo_url.attached? %>
+        <%= cl_image_tag @partner.photo_url.key, height: 150, width: 150, crop: :fill %>
+      <% end %>
+    </div>
+    <div id="bio">
+      <p>Hello, my name is <%= @partner.first_name %> and I'm from <%= @partner.address.split(",")[2] %>! My temperament is <%= @partner.temperament.downcase %> hope you'll get it, also i'm interested in <%= @partner.interest.downcase %>. In case you didnt notice my gender is <%= @partner.gender.downcase %></p>
+    </div>
+    <div id="stats">
+      <div class="col" id="l">
+        <p class="stat">$<%= price %>/day </p>
+        <p class="label">Price</p>
+      </div>
+      <div class="col">
+        <p class="stat"><%= @partner.temperament %></p>
+        <p class="label">Temperament</p>
+      </div>
+      <div class="col" id="r">
+        <p class="stat"><%= @partner.age %> y/o</p>
+        <p class="label">Age</p>
+      </div>
+    </div>
     <div id="buttons">
-  <%= link_to new_partner_appointment_path(@partner) do %>
-      <button>Rent me!</button>
-  <% end %>
-  <%= link_to partners_path do %>
-      <button id="msg">Back</button>
-  <% end %>
+      <%= link_to new_partner_appointment_path(@partner) do %>
+        <button>Rent me!</button>
+      <% end %>
+      <%= link_to partners_path do %>
+        <button id="msg">Back</button>
+      <% end %>
     </div>
 </div>
 

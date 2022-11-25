@@ -15,7 +15,8 @@ class PartnersController < ApplicationController
       {
         lat: partner.latitude,
         lng: partner.longitude,
-        image_url: helpers.cloudinary_url(partner.photo_url.key)
+        image_url: helpers.cloudinary_url(partner.photo_url.key),
+        info_window: render_to_string(partial: "info_window", locals: {partner: partner})
       }
     end
   end
