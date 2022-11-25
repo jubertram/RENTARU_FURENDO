@@ -12,3 +12,11 @@ application.register("hello", HelloController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)
+
+
+new Typed('#typed',{
+  strings : ['lonely ?','alone :(','like .. damn 😔'],
+  typeSpeed : 40,
+  delaySpeed : 90,
+  loop : true
+});
