@@ -1,7 +1,7 @@
 <div class="container">
-<h1 class="my-5 text-center" style="color: #344F73;">Rent a furendo</h1>
+<h1 class="my-5 text-center" style="color: #E6EBEE;">Rent a furendo</h1>
 
-<div style="color: #344F73;">
+<div style="display: flex; justify-content: center; color: #E6EBEE; font-family: montserrat; ">
 <%= simple_form_for [@partner, @appointment], data: { controller: 'flatpickr' } do |f|%>
 <%= f.input :start_time, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
 <%= f.input :end_time, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
@@ -9,7 +9,7 @@
 <% end %>
 </div>
 
-<%= link_to "Back to main", partners_path, class:'link-index-button btn-back btn-appointment' %>
+<%= link_to "Back to main", partners_path, class:'link-index-button btn-back btn-appointment', style: "color: #344F73; font-family: montserrat;" %>
 </div>
 
 <%= render 'shared/footer'%>
