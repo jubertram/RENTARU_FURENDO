@@ -19,28 +19,11 @@
   </div>
 </div>
 
-<div class="flex-index">
-  <div class="flex-card">
-    <% @partners.each do |partner| %>
-      <div class="card-product-index">
-        <%= link_to partner_path(partner) do %>
-          <div class="avatar-index">
-            <% if partner.photo_url.attached? %>
-              <%= cl_image_tag partner.photo_url.key, height: 300, width: 300, crop: :fill %>
-            <% end %>
-          </div>
-        <% end %>
-        <div class="card-product-infos-index">
-          <h2><%= link_to partner.first_name, partner_path(partner) %></h2>
-          <p>Meet <%= partner.first_name %>!</p>
-        </div>
-      </div>
-    <% end %>
-  </div>
-  <div class="map" style="height: calc(100vh - 229px);"
+
+  <div class="flex-index" style="height: calc(100vh - 229px);"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" >
   </div>
-</div><br>
+<br>
 <%= render 'shared/footer_home'%>

@@ -13,3 +13,23 @@
   width: 100%;
   text-align: center;
 }
+
+.mapboxgl-popup {
+  max-width: 200px;
+  border-radius: 10px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  border-radius: 50px;
+  padding: 19px 10px 15px;
+  background-color: #E6EBEE;
+}
+
+.mapboxgl-popup-close-button {
+  display: none;
+}
+
+.mapboxgl-popup-tip {
+  margin-bottom: 35px;
+}
