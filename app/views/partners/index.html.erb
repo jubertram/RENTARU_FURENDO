@@ -1,15 +1,23 @@
 <h1 style="color: #344F73; text-align: center; padding-bottom: 1%;">Furendos</h1>
 
-<%= form_tag partners_path, method: :get, class: "d-flex" do %>
-  <%= select_tag :interest,
-   options_for_select(Partner::INTEREST), prompt: "Interest"
-  %>
-    <%= select_tag :temperament,
-  options_for_select(Partner::TEMPERAMENT), prompt: "Temperament"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-  <%= link_to "See All Furendos", partners_path, class: "btn btn-success left-margin" %>
-<% end %>
+<div class="flex-container">
+  <div id="search">
+    <%= form_tag partners_path, method: :get, class: "d-flex" do %>
+      <%= select_tag :interest,
+      options_for_select(Partner::INTEREST), prompt: "Interest"
+      %>
+      <%= select_tag :temperament,
+      options_for_select(Partner::TEMPERAMENT), prompt: "Temperament"
+      %>
+      <button>Search</button>
+    <% end %>
+  </div>
+  <div id="button-search">
+    <%= link_to partners_path do %>
+      <button id="msg">Clear</button>
+    <% end %>
+  </div>
+</div>
 
 <div class="flex-index">
   <div class="flex-card">
