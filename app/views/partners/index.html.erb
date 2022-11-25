@@ -1,29 +1,20 @@
-<h1 style="color: #344F73; text-align: center; padding-bottom: 1%;">Furendos</h1>
 
-<div class="flex-container">
-  <div id="search">
-    <%= form_tag partners_path, method: :get, class: "d-flex" do %>
-      <%= select_tag :interest,
-      options_for_select(Partner::INTEREST), prompt: "Interest"
-      %>
-      <%= select_tag :temperament,
-      options_for_select(Partner::TEMPERAMENT), prompt: "Temperament"
-      %>
-      <button>Search</button>
-    <% end %>
-  </div>
-  <div id="button-search">
-    <%= link_to partners_path do %>
-      <button id="msg">Clear</button>
-    <% end %>
-  </div>
-</div>
+<%= form_tag partners_path, method: :get, class:"flex-container-search" do %>
+  <%= select_tag :interest, options_for_select(Partner::INTEREST), prompt: "Interest", class: "interest" %>
+  <%= select_tag :temperament, options_for_select(Partner::TEMPERAMENT), prompt: "Temperament", class: "interest" %>
+  <button  style="background-color: #344F73;" >Search</button>
+  <%= link_to partners_path do %>
+    <button id="msg">Clear</button>
+  <% end %>
+<% end %>
 
 
-  <div class="flex-index" style="height: calc(100vh - 229px);"
+
+<div class="flex-index" style="height: calc(100vh - 229px);"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" >
-  </div>
+</div>
+
 <br>
 <%= render 'shared/footer_home'%>
